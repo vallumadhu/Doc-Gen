@@ -1,0 +1,10 @@
+[project]
+name = "tcs"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "gitpython>=3.2.1",
+    "tree-sitter-language-pack>=1.22.1",
+]
