@@ -1,0 +1,81 @@
+{
+  "title": "Generated API Documentation",
+  "description": "Documentation generated from the analyzed repository.",
+  "endpoints": [
+    {
+      "method": "POST",
+      "path": "/pushnotes",
+      "summary": "Push notes to the specified index",
+      "description": "This endpoint allows users to push notes into a specified Pinecone index. The notes are processed into chunks and embedded before being uploaded.",
+      "parameters": [
+        {
+          "name": "index_name",
+          "type": "str",
+          "required": true,
+          "in": "query"
+        },
+        {
+          "name": "body",
+          "type": "Note",
+          "required": false,
+          "in": "body"
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Response indicating successful push of notes"
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/pushquestions",
+      "summary": "Push questions to the specified index.",
+      "description": "This endpoint allows users to push a list of questions to a specified Pinecone index. The questions are embedded using a model before being uploaded to the database.",
+      "parameters": [
+        {
+          "name": "index_name",
+          "type": "str",
+          "required": true,
+          "in": "query"
+        },
+        {
+          "name": "body",
+          "type": "Questions",
+          "required": false,
+          "in": "body"
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Response indicating successful push of questions."
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/generatenotes",
+      "summary": "Generate study notes and questions based on input data.",
+      "description": "This endpoint processes a set of questions and generates comprehensive study notes and additional exam questions based on the provided input. It utilizes clustering and semantic retrieval techniques to enhance the quality of the output.",
+      "parameters": [
+        {
+          "name": "body",
+          "type": "Data",
+          "required": false,
+          "in": "body"
+        },
+        {
+          "name": "index_name",
+          "type": "str",
+          "required": true,
+          "in": "query"
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Returns a JSON object containing generated study notes and related questions."
+        }
+      }
+    }
+  ]
+}
